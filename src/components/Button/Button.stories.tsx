@@ -19,25 +19,3 @@ export default {
 } as Meta<ButtonProps>;
 
 export const Default: StoryObj<ButtonProps> = {};
-
-export const Small: StoryObj<ButtonProps> = {
-  args: {},
-};
-
-export const Large: StoryObj<ButtonProps> = {
-  args: {},
-};
-
-export const CustomComponent: StoryObj<ButtonProps> = {
-  args: {
-    asChild: true,
-    children: <h1>Button with H1 tag</h1>,
-  },
-  argTypes: {
-    children: {
-      table: {
-        disable: true,
-      },
-    },
-  },
-};
