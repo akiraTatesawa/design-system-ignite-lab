@@ -17,6 +17,11 @@ export default {
         type: "inline-radio",
       },
     },
+    asChild: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } as Meta<HeadingProps>;
 
@@ -41,11 +46,6 @@ export const CustomComponent: StoryObj<HeadingProps> = {
   },
   argTypes: {
     children: {
-      table: {
-        disable: true,
-      },
-    },
-    asChild: {
       table: {
         disable: true,
       },
