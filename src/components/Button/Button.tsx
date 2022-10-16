@@ -6,15 +6,22 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   asChild?: boolean;
+  className?: string;
 }
 
-export function Button({ children, asChild, ...props }: ButtonProps) {
+export function Button({
+  children,
+  asChild,
+  className,
+  ...props
+}: ButtonProps) {
   const Component = asChild ? Slot : "button";
 
   return (
     <Component
       className={clsx(
-        "px-3 py-4 w-96 rounded font-semibold font-sans text-black text-sm bg-cyan-500 hover:bg-cyan-300 transition-colors outline-none focus:outline-white focus:outline-offset-1"
+        className,
+        "px-3 py-4 w-full rounded font-semibold font-sans text-black text-sm bg-cyan-500 hover:bg-cyan-300 transition-colors outline-none focus:outline-white focus:outline-offset-1"
       )}
       {...props}
     >
@@ -25,4 +32,5 @@ export function Button({ children, asChild, ...props }: ButtonProps) {
 
 Button.defaultProps = {
   asChild: false,
+  className: "",
 };

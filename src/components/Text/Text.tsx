@@ -6,14 +6,15 @@ export interface TextProps {
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   asChild?: boolean;
+  className?: string;
 }
 
-export function Text({ size, children, asChild }: TextProps) {
+export function Text({ size, children, asChild, className }: TextProps) {
   const Component = asChild ? Slot : "span";
 
   return (
     <Component
-      className={clsx("text-gray-100 font-sans", {
+      className={clsx("text-gray-100 font-sans", className, {
         "text-xs": size === "sm",
         "text-sm": size === "md",
         "text-md": size === "lg",
@@ -27,4 +28,5 @@ export function Text({ size, children, asChild }: TextProps) {
 Text.defaultProps = {
   size: "md",
   asChild: false,
+  className: "",
 };
